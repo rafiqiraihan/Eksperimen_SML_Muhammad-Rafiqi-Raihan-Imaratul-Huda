@@ -69,13 +69,13 @@ def preprocesing_data(data, target_column, save_path, file_path):
 
     # Simpan hasil preprocessing sebagai CSV
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
+    
     if hasattr(X_train_processed, "toarray"):
         X_train_processed = X_train_processed.toarray()
-
-    data_out = pd.DataFrame(X_train_processed)
-    data_out[target_column] = y_train.values
-    data_out.to_csv(file_path, index=False)
+    
+    df_out = pd.DataFrame(X_train_processed)
+    df_out[target_column] = y_train.values
+    df_out.to_csv(file_path, index=False)
     print(f"Dataset hasil preprocessing berhasil disimpan ke: {file_path}")
 
     return X_train_processed, X_test_processed, y_train, y_test
