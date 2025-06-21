@@ -36,3 +36,9 @@ jobs:
         with:
           name: telco-processed-dataset
           path: preprocessing/telco_preprocessing.csv
+
+      - name: Upload Preprocessing Pipeline
+        uses: actions/upload-artifact@v4
+        with:
+          name: telco-preprocessor-joblib
+          path: preprocessing/preprocessor.joblib
