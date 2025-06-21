@@ -5,6 +5,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import os
 
 # Pre Cleaning
 def clean_telco_data(data):
@@ -61,8 +62,9 @@ def preprocesing_data(data, target_column, save_path, file_path):
     # Fit transform pada train, transform pada test
     X_train_processed = preprocessor.fit_transform(X_train)
     X_test_processed = preprocessor.transform(X_test)
-
+    
     # Simpan pipeline
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     dump(preprocessor, save_path)
     print(f"Preprocessing pipeline berhasil disimpan ke: {save_path}")
 
