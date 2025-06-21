@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: telco-processed-dataset
-          path: output/telco_preprocessing.csv
+          path: preprocessing/telco_preprocessing.csv
