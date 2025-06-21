@@ -69,7 +69,7 @@ def preprocesing_data(data, target_column, save_path, file_path):
     return X_train_processed, X_test_processed, y_train, y_test
 
 if __name__ == "__main__":
-    data = pd.read_csv('Telco-Customer-Churn_raw.csv')
+    data = pd.read_csv('../Telco-Customer-Churn_raw.csv')
     data = clean_telco_data(data)
     data['is_churn'] = data['Churn'].map({'No':0, 'Yes': 1})
     data.drop(columns=['Churn'], inplace=True)
