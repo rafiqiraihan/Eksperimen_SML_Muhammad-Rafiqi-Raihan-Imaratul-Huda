@@ -29,7 +29,7 @@ jobs:
           python preprocessing/automate_Muhammad Rafiqi Raihan Imaratul Huda.py
 
       - name: Upload Dataset Hasil Preprocessing
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: telco-processed-dataset
           path: output/telco_preprocessing.csv
