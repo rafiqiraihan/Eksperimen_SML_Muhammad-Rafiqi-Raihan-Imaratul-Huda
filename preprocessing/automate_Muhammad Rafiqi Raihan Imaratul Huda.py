@@ -64,9 +64,19 @@ def preprocesing_data(data, target_column, save_path, file_path):
     X_test_processed = preprocessor.transform(X_test)
     
     # Simpan pipeline
-    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     dump(preprocessor, save_path)
     print(f"Preprocessing pipeline berhasil disimpan ke: {save_path}")
+
+    # Simpan hasil preprocessing sebagai CSV
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+    if hasattr(X_train_processed, "toarray"):
+        X_train_processed = X_train_processed.toarray()
+
+    data_out = pd.DataFrame(X_train_processed)
+    data_out[target_column] = y_train.values
+    data_out.to_csv(file_path, index=False)
+    print(f"Dataset hasil preprocessing berhasil disimpan ke: {file_path}")
 
     return X_train_processed, X_test_processed, y_train, y_test
 
@@ -79,6 +89,6 @@ if __name__ == "__main__":
     preprocesing_data(
         data=data,
         target_column='is_churn',
-        save_path='output/preprocessor.joblib',
+        save_path='preprocessing/preprocessor.joblib',
         file_path='preprocessing/telco_preprocessing.csv'
     )
