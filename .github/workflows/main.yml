@@ -26,8 +26,11 @@ jobs:
 
       - name: Jalankan Preprocessing
         run: |
-          python "preprocessing/automate_Muhammad Rafiqi Raihan Imaratul Huda.py"
+          python preprocessing/automate_Muhammad_Rafiqi_Raihan_Imaratul_Huda.py
 
+      - name: Debug - Lihat isi direktori preprocessing
+        run: ls -lah preprocessing
+        
       - name: Upload Dataset Hasil Preprocessing
         uses: actions/upload-artifact@v4
         with:
