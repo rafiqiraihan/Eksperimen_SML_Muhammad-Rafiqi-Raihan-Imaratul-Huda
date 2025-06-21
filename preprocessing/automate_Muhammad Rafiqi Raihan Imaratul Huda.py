@@ -78,5 +78,5 @@ if __name__ == "__main__":
         data=data,
         target_column='is_churn',
         save_path='output/preprocessor.joblib',
-        file_path='preprocessing/telco_preprocessing.csv''
+        file_path='preprocessing/telco_preprocessing.csv'
     )
