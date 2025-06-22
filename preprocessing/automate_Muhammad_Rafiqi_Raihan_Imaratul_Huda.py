@@ -40,7 +40,7 @@ def preprocesing_data(data, target_column, save_path, file_path):
     # Pipeline kategorikal
     categorical_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
-        ('encoder', OneHotEncoder(handle_unknown='ignore', sparse=False))
+        ('encoder', OneHotEncoder(handle_unknown='ignore'))
     ])
 
     # Gabungkan pipeline
