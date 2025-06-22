@@ -16,6 +16,8 @@ def clean_telco_data(data):
 
     # Konversi TotalCharges ke numerik
     data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')
+    data['TotalCharges'].fillna(data['TotalCharges'].mean(), inplace=True)
+    print("Jumlah NaN pada TotalCharges:", data['TotalCharges'].isna().sum())
 
     return data
 
