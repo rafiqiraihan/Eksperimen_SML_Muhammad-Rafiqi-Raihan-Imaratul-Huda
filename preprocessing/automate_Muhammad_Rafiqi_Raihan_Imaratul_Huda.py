@@ -11,11 +11,11 @@ import os
 def clean_telco_data(data):
     data = data.copy()
 
+    # Drop kolom ID
+    data.drop(columns=['customerID'], inplace=True)
+
     # Konversi TotalCharges ke numerik
     data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')
-
-    # Ubah SeniorCitizen ke kategori (string) karena hanya 0/1
-    data['SeniorCitizen'] = data['SeniorCitizen'].astype(str)
 
     return data
 
